@@ -1,22 +1,25 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Home</title>
+    <title>Menu</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{/resources/css/styles.min.css}" rel="stylesheet"/>
 </head>
 <body>
 
-    <h1>Home</h1>
-
-    <div>
-        <h2>Menu</h2>
-        <ul>
-            <li><a th:href="@{/create-file}">Create File</a></li>
-            <li><a th:href="@{/define-field-structure}">Define Field Structure</a></li>
-            <li><a th:href="@{/insert-record}">Insert Record</a></li>
-            <li><a th:href="@{/search}">Search</a></li>
-            <li><a th:href="@{/display}">Display Records In File</a></li>
-        </ul>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-6">
+                <h1>Menu</h1>
+                <div class="list-group">
+                    <a th:href="@{/create-file}" class="list-group-item active">Create File</a>
+                    <a th:href="@{/define-field-structure}" class="list-group-item">Define Field Structure</a>
+                    <a th:href="@{/insert-record}" class="list-group-item">Insert Record</a>
+                    <a th:href="@{/search}" class="list-group-item">Search</a>
+                    <a th:href="@{/display}" class="list-group-item">Display Records In File</a>
+                </div>
+            </div>
+        </div>
     </div>
 
 </body>

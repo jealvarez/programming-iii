@@ -17,3 +17,17 @@
 bin/
 build/
 settings.gradle
+
+# Files
+/src/main/webapp/resources/css/main.min.css
+/src/main/webapp/resources/css/styles.min.css
+/src/main/webapp/resources/fonts/*
+/src/main/webapp/resources/js/main.min.js
+/src/main/webapp/resources/js/main.min.js.map
+._bower.json
+._gruntfile.js
+._package.json
+
+# Folders
+bower_components/*
+node_modules/*

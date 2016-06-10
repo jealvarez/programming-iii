@@ -8,7 +8,7 @@ import org.umg.programming.iii.model.Field;
 import org.umg.programming.iii.structure.tree.BTree;
 
 import java.io.File;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
@@ -25,7 +25,7 @@ public class RecordProcessorImpl implements RecordProcessor {
     private File file;
     private boolean primaryKeyInserted = false;
 
-    final private Map<String, Field> fieldsDefinition = new HashMap<>();
+    final private Map<String, Field> fieldsDefinition = new LinkedHashMap<>();
     final private BTree<String, Integer> bTree = new BTree<>();
 
     @Override
@@ -65,7 +65,7 @@ public class RecordProcessorImpl implements RecordProcessor {
             }
 
             if (wasInserted) {
-                final String recordToWrite = prepareRecordToWriteInFile(entry.getValue(), field.getLenght(), "");
+                final String recordToWrite = prepareRecordToWriteInFile(entry.getValue(), field.getLength(), "");
                 writeToFile(file, recordToWrite);
             } else {
                 break;
@@ -115,11 +115,12 @@ public class RecordProcessorImpl implements RecordProcessor {
     }
 
     private Map<String, Object> transformRecordInFileToStructure(final String recordInFile) {
-        final Map<String, Object> record = new HashMap<>();
+        final Map<String, Object> record = new LinkedHashMap<>();
         int startIndex = 0;
         for (Map.Entry<String, Field> entry : fieldsDefinition.entrySet()) {
-            record.put(entry.getKey(), StringUtils.substring(recordInFile, startIndex, entry.getValue().getLenght()).trim());
-            startIndex = entry.getValue().getLenght();
+            final int position = entry.getValue().getLength() + startIndex;
+            record.put(entry.getKey(), StringUtils.substring(recordInFile, startIndex, position - 1).trim());
+            startIndex = position;
         }
         return record;
     }

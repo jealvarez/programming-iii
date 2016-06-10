@@ -1,20 +1,27 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Search</title>
+    <title>Records In File</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{/resources/css/styles.min.css}" rel="stylesheet"/>
 </head>
 <body>
 
-    <h1>File</h1>
-
-    <table>
-        <tr th:each="record : ${records}">
-            <td th:text="${record}">Key</td>
-        </tr>
-    </table>
-
-    <p><a th:href="@{/}">Menu</a></p>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-6">
+                <h1>Records In File</h1>
+                <table class="table table-hover">
+                    <tr th:each="record : ${records}">
+                        <td th:text="${record}">Key</td>
+                    </tr>
+                </table>
+                <div>
+                    <a th:href="@{/}" class="btn btn-primary">Menu</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>

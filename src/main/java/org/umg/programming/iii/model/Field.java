@@ -6,7 +6,7 @@ public class Field {
     private boolean primaryKey;
     private String name;
     private String type;
-    private int lenght;
+    private int length;
     private String comment;
 
     public int getOrder() {
@@ -41,12 +41,12 @@ public class Field {
         this.type = type;
     }
 
-    public int getLenght() {
-        return lenght;
+    public int getLength() {
+        return length;
     }
 
-    public void setLenght(final int lenght) {
-        this.lenght = lenght;
+    public void setLength(final int length) {
+        this.length = length;
     }
 
     public String getComment() {

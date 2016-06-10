@@ -12,7 +12,7 @@ import org.umg.programming.iii.model.Field;
 import org.umg.programming.iii.model.Search;
 import org.umg.programming.iii.processor.RecordProcessor;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
@@ -34,7 +34,7 @@ public class MainController {
     @RequestMapping(value = "/create-file", method = GET)
     public String createFile() {
         recordProcessor.createFile();
-        return "create-file";
+        return "main";
     }
 
     @RequestMapping(value = "/define-field-structure", method = GET)
@@ -59,8 +59,8 @@ public class MainController {
 
     @RequestMapping(value = "/insert-record", method = POST)
     public String insertRecordSubmit(@RequestBody final String record, final Model model) throws Exception {
-        final TypeReference<HashMap<String, Object>> typeReference = new TypeReference<HashMap<String, Object>>() { };
-        final HashMap<String, Object> recordMap = objectMapper.readValue(record, typeReference);
+        final TypeReference<LinkedHashMap<String, Object>> typeReference = new TypeReference<LinkedHashMap<String, Object>>() { };
+        final LinkedHashMap<String, Object> recordMap = objectMapper.readValue(record, typeReference);
         recordProcessor.addRecord(recordMap);
 
         return "insert-record";
