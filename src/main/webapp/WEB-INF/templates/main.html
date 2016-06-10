@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+    <h1>Home</h1>
+
+    <div>
+        <h2>Menu</h2>
+        <ul>
+            <li><a th:href="@{/create-file}">Create File</a></li>
+            <li><a th:href="@{/define-field-structure}">Define Field Structure</a></li>
+            <li><a th:href="@{/insert-record}">Insert Record</a></li>
+            <li><a th:href="@{/search}">Search</a></li>
+            <li><a th:href="@{/display}">Display Records In File</a></li>
+        </ul>
+    </div>
+
+</body>
+</html>

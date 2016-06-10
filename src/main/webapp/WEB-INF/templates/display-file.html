@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Search</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+    <h1>File</h1>
+
+    <table>
+        <tr th:each="record : ${records}">
+            <td th:text="${record}">Key</td>
+        </tr>
+    </table>
+
+    <p><a th:href="@{/}">Menu</a></p>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Record</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+    <form id="form-record" action="#" th:action="@{/insert-record}" method="post">
+        <div id="fields"></div>
+        <p><input type="submit" id="submit" value="Submit"/></p>
+        <p><a th:href="@{/}">Menu</a></p>
+    </form>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script th:inline="javascript" type="text/javascript">
+        (function() {
+            var fieldsDefinition = JSON.parse([[${fieldsDefinition}]]) || {};
+            $.each(fieldsDefinition, function (key, value) {
+                $('<p><label for="' + key + '">' + key + '<input type="text" id="' + key + '" size="' + value.lenght + '" name="' + key + '" value="" /></label></p>').appendTo(fields);
+            });
+
+            $("#form-record").submit(function (event) {
+                event.preventDefault();
+                var recordSerialized = JSON.stringify(transformFormDataInMap($(this)));
+                $.ajax({
+                    type: "POST",
+                    url: $(this).attr('action'),
+                    data: recordSerialized,
+                    dataType: 'json',
+                    contentType: "application/json; charset=utf-8",
+                });
+
+                $('#form-record').trigger("reset");
+            });
+        })();
+
+        function transformFormDataInMap($form) {
+            var unIndexedArray = $form.serializeArray();
+            var indexedArray = {};
+
+            $.map(unIndexedArray, function (n, i) {
+                indexedArray[n['name']] = n['value'];
+            });
+
+            return indexedArray;
+        }
+    </script>
+
+</body>
+</html>

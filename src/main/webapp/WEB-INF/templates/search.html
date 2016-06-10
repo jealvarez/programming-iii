@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Search</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+    <form id="form-valueToSearch" action="#" th:action="@{/search}" th:object="${search}" method="post">
+        <p>Search: <input type="text" th:field="*{valueToSearch}"/></p>
+        <p><input type="submit" id="submit" value="Submit"/></p>
+        <p><a th:href="@{/}">Menu</a></p>
+    </form>
+
+    <table border="1">
+        <tr th:each="record : ${recordMap}">
+            <td th:text="${record.key}">Key</td>
+            <td th:text="${record.value}">Value</td>
+        </tr>
+    </table>
+
+</body>
+</html>
