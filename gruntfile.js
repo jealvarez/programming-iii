@@ -26,10 +26,6 @@ module.exports = function(grunt) {
         files: {
           'src/main/webapp/resources/js/main.min.js': [
           'src/assets/js/jquery.js',
-          'src/assets/js/sockjs.js',
-          'src/assets/js/stomp.js',
-          'src/assets/js/angular.js',
-          'src/assets/js/lodash.js',
           'src/assets/js/*.js'
           ]
         }
@@ -42,12 +38,8 @@ module.exports = function(grunt) {
         expand : true,
         cwd    : 'bower_components/',
         src    : [
-        'angular/angular.js',
         'bootstrap/dist/js/bootstrap.js',
-        'jquery/dist/jquery.js',
-        'lodash/dist/lodash.js',
-        'sockjs/sockjs.js',
-        'stomp-websocket/lib/stomp.js'
+        'jquery/dist/jquery.js'
         ],
         dest   : 'src/assets/js/',
         flatten: true,
@@ -62,9 +54,6 @@ module.exports = function(grunt) {
         'normalize.css/normalize.css'
         ],
         dest   : 'src/assets/css/',
-        //rename : function(dest, src) {
-        //  return dest + src.replace(/\.css$/, '.styl');
-        //},
         flatten: true,
         filter : 'isFile'
       },
