@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>B PLus Tree Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{/resources/css/styles.min.css}" rel="stylesheet"/>
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-6">
+                <h1>B Plus Tree Content</h1>
+                <table class="table table-hover">
+                    <tr>
+                        <td th:text="${content}">Value</td>
+                    </tr>
+                </table>
+                <div>
+                    <a th:href="@{/}" class="btn btn-primary">Menu</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

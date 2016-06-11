@@ -87,4 +87,11 @@ public class MainController {
         return "display-file";
     }
 
+    @RequestMapping(value = "/display-tree", method = GET)
+    public String displayBTreeContent(final Model model) throws Exception {
+        String content = recordProcessor.getBTreeContent();
+        model.addAttribute("content", content);
+        return "display-tree";
+    }
+
 }

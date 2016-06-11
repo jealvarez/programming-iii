@@ -18,4 +18,6 @@ public interface RecordProcessor {
 
     String[] getRecordsFromFile() throws Exception;
 
+    String getBTreeContent();
+
 }

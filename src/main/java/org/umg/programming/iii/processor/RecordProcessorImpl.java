@@ -96,6 +96,11 @@ public class RecordProcessorImpl implements RecordProcessor {
         return records;
     }
 
+    @Override
+    public String getBTreeContent() {
+        return bTree.traverse();
+    }
+
     private Integer isRecordFound(final String valueToSearch) {
         final Integer lineNumber = bTree.search(valueToSearch);
 

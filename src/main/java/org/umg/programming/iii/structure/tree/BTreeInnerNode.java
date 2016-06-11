@@ -1,7 +1,7 @@
 package org.umg.programming.iii.structure.tree;
 
 class BTreeInnerNode<TKey extends Comparable<TKey>> extends BTreeNode<TKey> {
-    protected final static int INNERORDER = 4;
+    protected final static int INNERORDER = 3;
     protected Object[] children;
 
     public BTreeInnerNode() {
